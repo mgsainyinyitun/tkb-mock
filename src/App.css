@@ -2,9 +2,75 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#container{
+  border: 3px solid green;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  border:1px solid red;
+  padding-left: 1rem;
+}
+
+.body{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+table{
+  border-collapse: collapse;
+}
+.tkbTable{
+  width: 100%;
+}
+.tbHeader{
+  text-align: center;
+  height: 50px;
+}
+
+.tbgenRow{
+  text-align: center;
+  background-color:gainsboro;
+  border-bottom: 1px solid black;
+}
+.tbMsgRow{
+  background-color: gainsboro;
+  border-bottom: 1px solid black;
+}
+
+.tkbItem{
+  text-align: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+}
+
+.tkbItem2{
+  text-align: center;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+}
+
+.itemMsg{
+  text-align: left;
+}
+
+.danger{
+  background-color: pink;
+}
+.info{
+  background-color: #96d9ec;
+}
+.warning{
+  background-color: rgb(245, 245, 140);
 }
 
 @media (prefers-reduced-motion: no-preference) {
