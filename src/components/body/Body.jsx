@@ -1,9 +1,10 @@
 import TkbTable from "../tkblist/TkbTable";
 
-function Body(){
+function Body({date}){
+
     return(
         <div className="body">
-            <TkbTable/>
+            <TkbTable date={date}/>
         </div>
     )
 }

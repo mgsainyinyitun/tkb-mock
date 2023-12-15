@@ -1,4 +1,4 @@
-function TkbItem({ index, id, occureDate, group, server, serverity, fase, message }) {
+function TkbItem({ index, id, occureDate, group, server, serverity, fase, message,max }) {
 
     function convertISOToFormattedString(isoString) {
         const date = new Date(isoString);
@@ -11,8 +11,10 @@ function TkbItem({ index, id, occureDate, group, server, serverity, fase, messag
 
         return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
     }
+
+
     return (
-        <tr key={id} className={index % 2 == 0 ? "tkbItem" : "tkbItem2"}>
+        <tr key={id} className={index % 2 === 0 ? "tkbItem" : "tkbItem2"} style={{borderBottom: max?"1px solid black":""}}>
             <td>
                 {convertISOToFormattedString(occureDate)}
             </td>
@@ -36,7 +38,6 @@ function TkbItem({ index, id, occureDate, group, server, serverity, fase, messag
             <td className="itemMsg">
                 {message}
             </td>
-
         </tr>
     )
 }

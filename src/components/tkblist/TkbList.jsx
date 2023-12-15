@@ -1,37 +1,28 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
 import TkbItem from "./TkbItem";
 
-function TkbList() {
-    const [tkbList, setTkbList] = useState([]);
-    useEffect(() => {
-        console.log(tkbList);
-        const fetchTKB = async () => {
-            try {
-                const response = await axios.get('https://calm-pink-donkey-tie.cyclic.app/tkb/all/json?sort=occureDate&order=desc', { crossDomain: true })
-                setTkbList(response.data.data); // Assuming the response contains the timetable data
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-        fetchTKB();
-    }, []);
+function TkbList({ tkbList }) {
 
     return (
-        <tbody>
-            {tkbList.map((tkbItem, index) => (
-                <TkbItem
-                    index={index}
-                    id={tkbItem.id}
-                    occureDate={tkbItem.occureDate}
-                    group={tkbItem.group}
-                    server={tkbItem.server}
-                    serverity={tkbItem.serverity}
-                    fase={tkbItem.fase}
-                    message={tkbItem.message}
-                />
-            ))}
-        </tbody>
+        <>
+            {
+                tkbList.length === 0 ? (<tbody><tr class="tkbItem" style={{ borderBottom: `1px solid black` }}><td colSpan="6">{`No data available in table`}</td></tr></tbody>) : (
+                    <tbody>
+                        {tkbList.map((tkbItem, index) => (
+                            <TkbItem
+                                index={index}
+                                id={tkbItem.id}
+                                occureDate={tkbItem.occureDate}
+                                group={tkbItem.group}
+                                server={tkbItem.server}
+                                serverity={tkbItem.serverity}
+                                fase={tkbItem.fase}
+                                message={tkbItem.message}
+                                max={index + 1 === tkbList.length}
+                            />
+                        ))}
+                    </tbody>)}
+        </>
     )
 }
 

@@ -1,8 +1,24 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import TkbList from "./TkbList";
 
-function TkbTable() {
+function TkbTable({date}) {
+    const [tkbList, setTkbList] = useState([]);
+    useEffect(() => {
+        const fetchTKB = async () => {
+            try {
+                const response = await axios.get(`https://calm-pink-donkey-tie.cyclic.app/tkb/all/json?sort=occureDate&order=desc&date=${date?date:""}`);
+                setTkbList(response.data.data); 
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchTKB();
+    }, [date]);
+
     return (
         <div className="tkb-table">
+            <p>Showing {tkbList.length===0?0:1} to {tkbList.length} of {tkbList.length} entries</p>
             <table className="tkbTable">
                 <thead className="tbHeader">
                     <td className="tbgenRow" width={200}>
@@ -24,8 +40,10 @@ function TkbTable() {
                        メッセージ
                     </td>
                 </thead>
-                <TkbList/>
+                <TkbList tkbList={tkbList}/>
             </table>
+            <p>Showing {tkbList.length===0?0:1} to {tkbList.length} of {tkbList.length} entries</p>
+            <br/>
         </div>
     )
 

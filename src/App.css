@@ -3,21 +3,36 @@
 }
 
 #container{
-  border: 3px solid green;
+  border: 3px solid gainsboro;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.header{
-  border:1px solid red;
-  padding-left: 1rem;
+h1{
+  margin: 0;
+  margin-right: 200px;
 }
-
+.header{
+  display: flex;
+  border:1px solid gainsboro;
+  padding: 0.5rem;
+  align-items:center;
+}
+.date{
+  min-height: 25px;
+}
+.noData{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .body{
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 table{
@@ -29,6 +44,9 @@ table{
 .tbHeader{
   text-align: center;
   height: 50px;
+}
+tbody{
+  border-bottom: 1px solid black;
 }
 
 .tbgenRow{
@@ -57,6 +75,10 @@ table{
   padding: 0;
   border-bottom: 1px solid #ddd;
   height: 40px;
+}
+
+.bb-b{
+  border-bottom: 1px solid black;
 }
 
 .itemMsg{
